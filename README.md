@@ -2,6 +2,10 @@
 
 **A comprehensive Minecraft world repair utility that fixes common issues caused by removed mods and datapacks.**
 
+<div align="center">
+  <img src="DLEF.png" alt="Datapack Load Error Fix Logo" width="400">
+</div>
+
 ## Overview
 
 Datapack Load Error Fix is a lightweight utility mod designed to help players recover and continue using their Minecraft worlds after removing mods. When mods that add custom dimensions, entities, or blocks are uninstalled, they often leave behind data references that can cause world loading errors or in-game crashes. This mod automatically detects and cleans these invalid references, allowing your worlds to load properly again.
