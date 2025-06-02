@@ -1,0 +1,15 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.xinian.datapackloaderrorfix.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "refmap": "datapackloaderrorfix.refmap.json",
+  "mixins": [
+  ],
+  "client": [
+
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
