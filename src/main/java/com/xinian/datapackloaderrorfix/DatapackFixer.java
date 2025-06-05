@@ -25,10 +25,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.stream.Stream;
 
-/**
- * 数据包配置修复工具
- * 扫描并修复数据包配置文件中引用不存在模组的内容
- */
+
 public class DatapackFixer {
     private static final Logger LOGGER = LogManager.getLogger();
     private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
@@ -43,9 +40,7 @@ public class DatapackFixer {
             "data"
     };
 
-    /**
-     * 修复世界中的数据包配置
-     */
+
     public static void fixDatapacks(File worldDir) {
         LOGGER.info("开始扫描并修复数据包配置...");
 
@@ -188,9 +183,7 @@ public class DatapackFixer {
         return changed;
     }
 
-    /**
-     * 清理JsonObject中引用不存在模组的内容
-     */
+
     private static boolean cleanJsonObject(JsonObject obj) {
         boolean changed = false;
 
@@ -244,9 +237,7 @@ public class DatapackFixer {
         return changed;
     }
 
-    /**
-     * 清理JsonArray中引用不存在模组的内容
-     */
+
     private static boolean cleanJsonArray(JsonArray array) {
         boolean changed = false;
 
@@ -295,9 +286,7 @@ public class DatapackFixer {
         return reference;
     }
 
-    /**
-     * 判断键是否可以安全移除（当值引用不存在的模组时）
-     */
+
     private static boolean isRemovableKey(String key) {
 
         String[] removableKeys = {

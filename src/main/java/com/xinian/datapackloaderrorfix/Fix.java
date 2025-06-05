@@ -58,9 +58,7 @@ public class Fix {
 		}
 	}
 
-	/**
-	 * 清理维度数据
-	 */
+
 	private static boolean cleanDimensions(CompoundTag dimensions) {
 		boolean changed = false;
 		Set<String> keys = dimensions.getAllKeys();
@@ -91,16 +89,16 @@ public class Fix {
 	private static boolean cleanEntities(CompoundTag data) {
 		boolean changed = false;
 
-		// 清理玩家数据
+
 		if (data.contains("Player")) {
 			CompoundTag player = data.getCompound("Player");
 
-			// 清理物品栏
+
 			if (player.contains("Inventory")) {
 				changed |= cleanInventory(player.getList("Inventory", 10));
 			}
 
-			// 清理末影箱
+
 			if (player.contains("EnderItems")) {
 				changed |= cleanInventory(player.getList("EnderItems", 10));
 			}
@@ -193,12 +191,10 @@ public class Fix {
 		}
 	}
 
-	/**
-	 * 处理自定义维度的区块数据
-	 */
+
 	private static void processCustomDimensions(File dimensionsDir) {
 		try {
-			// 遍历所有自定义维度
+
 			try (Stream<Path> paths = Files.walk(dimensionsDir.toPath())) {
 				List<File> regionDirs = paths
 						.filter(path -> path.toFile().isDirectory())
@@ -214,53 +210,6 @@ public class Fix {
 			LOGGER.error("处理自定义维度时出错", e);
 		}
 	}
-
-	/**
-	 * 清理区块文件中的实体数据
-	 * 注意：这是一个框架方法，实际实现需要根据Minecraft的区块格式进行开发
-	 */
-	private static void cleanRegionFile(File regionFile) {
-		// 这里需要实现区块文件的处理逻辑
-		// 由于区块文件格式较复杂，需要使用专门的区块解析库或参考Minecraft源码
-
-		// 示例伪代码:
-        /*
-        RegionFile region = new RegionFile(regionFile.toPath(), regionFile.getParentFile().toPath(), false);
-
-        for (int x = 0; x < 32; x++) {
-            for (int z = 0; z < 32; z++) {
-                if (region.hasChunk(new ChunkPos(x, z))) {
-                    CompoundTag chunkData = region.getChunk(new ChunkPos(x, z));
-                    if (chunkData != null) {
-                        boolean changed = false;
-
-                        // 清理实体列表
-                        if (chunkData.contains("Entities", 9)) {
-                            ListTag entities = chunkData.getList("Entities", 10);
-                            changed |= cleanEntitiesList(entities);
-                        }
-
-                        // 清理方块实体列表
-                        if (chunkData.contains("TileEntities", 9)) {
-                            ListTag tileEntities = chunkData.getList("TileEntities", 10);
-                            changed |= cleanTileEntitiesList(tileEntities);
-                        }
-
-                        if (changed) {
-                            region.write(new ChunkPos(x, z), chunkData);
-                        }
-                    }
-                }
-            }
-        }
-
-        region.close();
-        */
-
-
-		LOGGER.info("区块文件处理框架已准备，但需要实际实现");
-	}
-
 
 	private static boolean cleanEntitiesList(ListTag entities) {
 		boolean changed = false;
