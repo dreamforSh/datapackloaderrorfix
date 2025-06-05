@@ -1,7 +1,8 @@
 package com.xinian.datapackloaderrorfix;
 
 import com.xinian.datapackloaderrorfix.config.ModConfig;
-import com.xinian.datapackloaderrorfix.handler.LevelLoadHandler;
+
+import com.xinian.datapackloaderrorfix.handler.GuiScreenEventHandler;
 import com.xinian.datapackloaderrorfix.util.ModDetector;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
@@ -14,14 +15,14 @@ public class Main {
     private static final Logger LOGGER = LogManager.getLogger();
 
     public Main() {
-        LOGGER.info("Datapack Load Error Fix 初始化中...");
-
+        LOGGER.info("status=initializing, mod={}, action=init_start", MOD_ID);
 
         ModConfig.init();
 
-        MinecraftForge.EVENT_BUS.register(LevelLoadHandler.class);
 
-        LOGGER.info("Datapack Load Error Fix 初始化完成");
+        MinecraftForge.EVENT_BUS.register(GuiScreenEventHandler.class);
+
+        LOGGER.info("status=completed, mod={}, action=init_finished", MOD_ID);
     }
 
     public static boolean isModLoaded(String modid) {

@@ -72,8 +72,7 @@ public class ChunkDataProcessor extends BaseProcessor {
         logger.info("处理区块文件: {}", regionFile.getName());
 
         // TODO: 实现具体的区块文件处理逻辑
-        // 这里需要使用专门的区块解析库或参考Minecraft源码
-        // 由于区块文件格式复杂，这里提供框架结构
+
 
         try {
             cleanRegionFile(regionFile);
@@ -84,10 +83,6 @@ public class ChunkDataProcessor extends BaseProcessor {
 
     private void cleanRegionFile(File regionFile) {
         // TODO: 实现区块文件清理逻辑
-        // 1. 读取区块文件
-        // 2. 解析区块数据
-        // 3. 清理实体和方块实体引用
-        // 4. 写回文件
         logger.debug("区块文件清理功能待实现: {}", regionFile.getName());
     }
 
