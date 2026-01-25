@@ -1,0 +1,12 @@
+plugins {
+    id 'java-library'
+}
+
+archivesBaseName = "${rootProject.ext.mod_id}-common"
+
+java {
+    withSourcesJar()
+}
+
+dependencies {
+}

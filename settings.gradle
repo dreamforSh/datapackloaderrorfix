@@ -1,15 +1,28 @@
 pluginManagement {
     repositories {
         gradlePluginPortal()
-        maven {
-            name = 'MinecraftForge'
-            url = 'https://maven.minecraftforge.net/'
-        }
+        maven { url = 'https://maven.minecraftforge.net' }
+        maven { url = 'https://repo.spongepowered.org/repository/maven-public/' }
+        mavenCentral()
     }
 }
 
-plugins {
-    id 'org.gradle.toolchains.foojay-resolver-convention' version '0.7.0'
+rootProject.name = 'Datapack-Load-Error-Fix'
+
+include('common')
+
+include("forge")
+project(":forge").with {
+    projectDir = file("forge/")
+    buildFileName = "root.gradle"
 }
 
-rootProject.name = 'datapackloaderrorfix'
+file('forge').listFiles((FileFilter) ((File file) -> 
+    file.isDirectory() && file.name ==~ /(\d+)\.(\d+)(\.(\d+))?/
+)).each {
+    include("forge:$it.name")
+    project(":forge:$it.name").with {
+        projectDir = file("forge/${it.name}")
+        buildFileName = '../build.gradle'
+    }
+}

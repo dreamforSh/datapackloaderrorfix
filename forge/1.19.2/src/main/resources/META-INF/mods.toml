@@ -1,0 +1,11 @@
+modLoader="javafml" #mandatory
+loaderVersion="[40,)" 
+license="MIT"
+[[mods]] 
+modId="datapackloaderrorfix" 
+version="${file.jarVersion}" 
+displayName="Datapack Load Error Fix" 
+authors="MajongMC"
+description='''
+
+'''
