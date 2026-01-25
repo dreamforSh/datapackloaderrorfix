@@ -1,0 +1,16 @@
+modLoader="javafml" #mandatory
+loaderVersion="[61,)"
+license="MIT"
+[[mods]]
+modId="datapackloaderrorfix"
+version="${file.jarVersion}"
+displayName="Datapack Load Error Fix"
+authors="MajongMC"
+description='''
+Fix datapack loading errors caused by removed mods with custom dimensions
+'''
+clientSideOnly=true
+ordering = "NONE"
+side = "CLIENT"
+ordering = "NONE"
+side = "CLIENT"

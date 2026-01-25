@@ -1,5 +1,5 @@
 modLoader="javafml" #mandatory
-loaderVersion="[40,)" 
+loaderVersion="[51,)"
 license="MIT"
 [[mods]] 
 modId="datapackloaderrorfix" 

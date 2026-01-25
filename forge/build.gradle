@@ -40,6 +40,7 @@ minecraft {
             mods {
                 datapackloaderrorfix {
                     source sourceSets.main
+                    source project(':common').sourceSets.main
                 }
             }
         }
@@ -53,6 +54,7 @@ minecraft {
             mods {
                 datapackloaderrorfix {
                     source sourceSets.main
+                    source project(':common').sourceSets.main
                 }
             }
         }
@@ -66,6 +68,7 @@ minecraft {
             mods {
                 datapackloaderrorfix {
                     source sourceSets.main
+                    source project(':common').sourceSets.main
                 }
             }
         }
@@ -84,9 +87,11 @@ dependencies {
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
     
     implementation project(':common')
+    implementation 'net.sf.jopt-simple:jopt-simple:5.0.4'
 }
 
 jar {
+    from project(':common').sourceSets.main.output
     manifest {
         attributes([
                 "Specification-Title"     : rootProject.ext.mod_name,
