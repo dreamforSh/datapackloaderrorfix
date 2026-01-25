@@ -17,6 +17,13 @@ plugins {
 apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'org.spongepowered.mixin'
 
+def minecraftVer = project.minecraft_version.split('\\.').collect { it.toInteger() }
+def requiresJava21 = minecraftVer[0] > 1 || (minecraftVer[0] == 1 && minecraftVer[1] >= 21)
+
+if (requiresJava21) {
+    java.toolchain.languageVersion = JavaLanguageVersion.of(21)
+}
+
 version = "${rootProject.version}-forge-${project.name}"
 archivesBaseName = "${rootProject.ext.mod_id}-forge-${project.name}"
 
